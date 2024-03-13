@@ -1,3 +1,4 @@
+import 'package:clock_app/timer.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -152,12 +153,13 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           TextButton(
-            onPressed: () async{
+            onPressed: () async {
               isLoad = true;
               setState(() {});
-              await Future.delayed(Duration(seconds: 3),() {
-
-              },);
+              await Future.delayed(
+                Duration(seconds: 3),
+                () {},
+              );
               isLoad = false;
               setState(() {});
             },
@@ -195,7 +197,6 @@ class _HomePageState extends State<HomePage> {
             child: isLoad
                 ? Center(
                     child: CircularProgressIndicator(),
-
                   )
                 : Image.network(
                     "https://androidknowledge.com/wp-content/uploads/2022/10/navthumb.png",
@@ -219,6 +220,11 @@ class _HomePageState extends State<HomePage> {
           );
 
           print("Order Completed");
+          Navigator.push(context, MaterialPageRoute(
+            builder: (context) {
+              return TimerPage();
+            },
+          ));
         },
       ),
     );
