@@ -1,3 +1,4 @@
+import 'package:clock_app/clock_ui.dart';
 import 'package:clock_app/timer.dart';
 import 'package:flutter/material.dart';
 
@@ -125,7 +126,16 @@ class _HomePageState extends State<HomePage> {
               backgroundImage: NetworkImage("https://androidknowledge.com/wp-content/uploads/2022/10/navthumb.png"),
             ),
           ),
-          Text("Hello"),
+          InkWell(
+            child: Text("ClockUI"),
+            onTap: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ClockUI(),
+                  ));
+            },
+          ),
           Divider(),
           Text("Hello"),
         ],
